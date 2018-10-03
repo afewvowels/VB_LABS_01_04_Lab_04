@@ -1,0 +1,11 @@
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\bin\Debug\EX0405.exe
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\bin\Debug\EX0405.pdb
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\bin\Debug\EX0405.xml
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\EX0405.CheckingForm.resources
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\EX0405.Resources.resources
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\EX0405.exe
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\EX0405.xml
+C:\Users\Admin\Documents\McGrawHill\VB2010\New Solutions\Chapter04\EX0405\EX0405\obj\x86\Debug\EX0405.pdb

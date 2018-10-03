@@ -1,0 +1,12 @@
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\obj\x86\Debug\EX0405.exe
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\obj\x86\Debug\EX0405.xml
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\obj\x86\Debug\EX0405.pdb
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\bin\Debug\EX0405.exe
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\bin\Debug\EX0405.pdb
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\bin\Debug\EX0405.xml
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\obj\x86\Debug\EX0405.CheckingForm.resources
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\obj\x86\Debug\EX0405.Resources.resources
+C:\Users\anthony.Office\Documents\Personal\YSU\Teaching\Webroot\CSIS3726\labs\code\Lab_05_Solution\Lab_05\obj\x86\Debug\Lab_05.vbproj.GenerateResource.Cache
+C:\Users\anthony.Office\Downloads\Lab_05_Work\Lab_05_Work\Lab_05\obj\x86\Debug\EX0405.exe
+C:\Users\anthony.Office\Downloads\Lab_05_Work\Lab_05_Work\Lab_05\obj\x86\Debug\EX0405.xml
+C:\Users\anthony.Office\Downloads\Lab_05_Work\Lab_05_Work\Lab_05\obj\x86\Debug\EX0405.pdb

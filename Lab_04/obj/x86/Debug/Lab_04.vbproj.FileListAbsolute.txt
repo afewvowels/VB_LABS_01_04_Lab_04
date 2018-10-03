@@ -1,0 +1,10 @@
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\bin\Debug\Lab_04.exe.config
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\bin\Debug\Lab_04.exe
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\bin\Debug\Lab_04.pdb
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\bin\Debug\Lab_04.xml
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\obj\x86\Debug\Lab_04.CheckingForm.resources
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\obj\x86\Debug\Lab_04.Resources.resources
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\obj\x86\Debug\Lab_04.vbproj.GenerateResource.Cache
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\obj\x86\Debug\Lab_04.exe
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\obj\x86\Debug\Lab_04.xml
+\\tank.ysu.local\kbsmith01\Documents\GitHub\VB_LABS_01_04_Lab_04\Lab_04\obj\x86\Debug\Lab_04.pdb
