@@ -6,6 +6,10 @@
 '             the new balance is displayed.
 '             A summary includes all transactions.
 
+
+' Date: 3 October 2018
+' Author: Keith Smith
+
 Option Explicit On
 Option Strict On
 
@@ -13,7 +17,7 @@ Public Class CheckingForm
     ' Declare variables
     Dim AccountBalanceDecimal As Decimal
 
-    ' Accumulators
+    ' Accumulators for account events and amounts
     Dim DepositAccumulatorInteger As Integer
     Dim DepositAmountAccumulatorDecimal As Decimal
     Dim CheckAccumulatorInteger As Integer
@@ -21,13 +25,13 @@ Public Class CheckingForm
     Dim ServiceChargeAccumulatorInteger As Integer
     Dim ServiceChargeAmountAccumulatorDecimal As Decimal
 
+    ' Closes program
     Private Sub ExitButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitButton.Click
         'End the program
-
         Me.Close()
     End Sub
 
-
+    ' Zeroes out all accumulator values and resets account balance and label text
     Private Sub ClearTextBox_Click(sender As Object, e As EventArgs) Handles ClearTextBox.Click
         ' Zero out account balance and all accumulators
         AccountBalanceDecimal = 0
@@ -39,25 +43,28 @@ Public Class CheckingForm
         ServiceChargeAmountAccumulatorDecimal = 0
 
         ' Update zeroed balance amount to balance label
-        UpdateAccountBalanceField()
+        BalanceTextBox.Text = AccountBalanceDecimal.ToString("c")
+
+        ' Clear amount text box entry field
+        AmountTextBox.Clear()
     End Sub
 
+    'Calculate the transaction and display the new balance.
     Private Sub CalculateTextBox_Click(sender As Object, e As EventArgs) Handles CalculateTextBox.Click
-        'Calculate the transaction and display the new balance.
+        ' Declare temporary decimal to hold amount for account event
         Dim AmountDecimal As Decimal
 
         If DepositRadioButton.Checked Or CheckRadioButton.Checked Or ChargeRadioButton.Checked Then
             Try
                 AmountDecimal = Decimal.Parse(AmountTextBox.Text)
-
+                ' Make sure amount is positive (no negative values)
                 If AmountDecimal < 0 Then
                     Throw New System.FormatException
                 End If
 
                 ' Calculate each transaction and keep track of summary information
-                ' then display updated account balance to balance label
                 AccountEvent(AmountDecimal)
-                UpdateAccountBalanceField()
+                UpdateAccountBalanceLabel()
             Catch AmountException As FormatException
                 MessageBox.Show("Please make sure that only positive numeric data has been entered.",
                     "Invalid Entry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -73,27 +80,33 @@ Public Class CheckingForm
         End If
     End Sub
 
+    ' Update account balance label text property
+    Sub UpdateAccountBalanceLabel()
+        BalanceTextBox.Text = AccountBalanceDecimal.ToString("c")
+    End Sub
+
+    ' Account event subroutine, takes in an amount and checks
+    ' to see which radio button has been checked.
     Sub AccountEvent(ByVal _AmountDecimal As Decimal)
+        ' Figure out which radio button was selected and perform appropriate action
         Select Case True
             Case DepositRadioButton.Checked
                 DepositEvent(_AmountDecimal)
             Case CheckRadioButton.Checked
                 CheckEvent(_AmountDecimal)
             Case ChargeRadioButton.Checked
-                ChargeEvent()
+                ChargeEvent(_AmountDecimal)
             Case Else
                 MessageBox.Show("Something weird happened",
                                 "Weird error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Question)
         End Select
+
+        ' After event, update account balance label text property
     End Sub
 
-    Sub UpdateAccountBalanceField()
-        ' Update label with current account balance decimal value
-        BalanceTextBox.Text = AccountBalanceDecimal.ToString("c")
-    End Sub
-
+    ' Basic deposit event, add amount to account balance
     Sub DepositEvent(ByVal __AmountDecimal As Decimal)
         ' Add __AmountDecimal to account balance
         AccountBalanceDecimal += __AmountDecimal
@@ -103,13 +116,24 @@ Public Class CheckingForm
         DepositAmountAccumulatorDecimal += __AmountDecimal
     End Sub
 
+    ' Basic withdraw event, remove amount from balance
+    Sub WithdrawEvent(ByVal __AmountDecimal As Decimal)
+        ' Subtract amount decimal from account balance
+        AccountBalanceDecimal -= __AmountDecimal
+
+        ' Updating accumulators happens one level up since
+        ' this routine is used by the check and the service charge subroutines
+    End Sub
+
+    ' check event subroutine
     Sub CheckEvent(ByVal __AmountDecimal As Decimal)
+
         ' Check to make sure that the amount trying
         ' to be removed is not greater than account balance
         If __AmountDecimal <= AccountBalanceDecimal Then
             ' Amount to remove less than account balance so call withdraw subroutine
             ' to modify account balance variable
-            Withdrawl(__AmountDecimal)
+            WithdrawEvent(__AmountDecimal)
 
             ' Update accumulator values
             CheckAccumulatorInteger += 1
@@ -117,30 +141,28 @@ Public Class CheckingForm
         Else
             ' Amount to remove greater than account balance so call service charge subroutine
             ' and dislay error message
-            MessageBox.Show("Your balance is less than the amount you are trying to withdraw.",
+            MessageBox.Show("Insufficient funds: $10 service charge.",
                             "Overdraft Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
+
             ChargeEvent()
         End If
     End Sub
 
-    Sub ChargeEvent()
-        ' Declare constant service charge variable
-        Const SERVICE_CHARGE_Decimal As Decimal = 10D
+    ' Event for service charge, withdraws amount and updates
+    ' accumulator values.
+    Sub ChargeEvent(Optional __AmountDecimal As Decimal = 10D)
+        ' Remove amount from account balance regardless if it makes
+        ' the account balance negative
+        WithdrawEvent(__AmountDecimal)
 
-        ' Withdraw service charge from account balance
-        Withdrawl(SERVICE_CHARGE_Decimal)
-
-        ' Update running totals of service charge events and total service charges accrued
+        ' Update accumulator values
         ServiceChargeAccumulatorInteger += 1
-        ServiceChargeAmountAccumulatorDecimal += SERVICE_CHARGE_Decimal
+        ServiceChargeAmountAccumulatorDecimal += __AmountDecimal
     End Sub
 
-    Sub Withdrawl(ByVal __AmountDecimal As Decimal)
-        AccountBalanceDecimal -= __AmountDecimal
-    End Sub
-
+    ' Subroutine to display running totals of all account events and amounts
     Private Sub SummaryButton_Click(sender As Object, e As EventArgs) Handles SummaryButton.Click
         MessageBox.Show("Total number of deposits: " + DepositAccumulatorInteger.ToString + Environment.NewLine +
                         "Total amount of deposits: " + DepositAmountAccumulatorDecimal.ToString("c") + Environment.NewLine +
@@ -150,6 +172,10 @@ Public Class CheckingForm
                         "Total amount of service charges: " + ServiceChargeAmountAccumulatorDecimal.ToString("c"),
                         "Total account events",
                         MessageBoxButtons.OK)
+    End Sub
+
+    Private Sub CheckingForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        UpdateAccountBalanceLabel()
     End Sub
 End Class
 
